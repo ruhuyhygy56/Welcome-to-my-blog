@@ -1,0 +1,1 @@
+Little personal project to get into the vibe of web development + try out ruby on rails <br>Doubt anyone will find this but just in case, it's not open for modifications lol, I just made it public to add a little "accountability" for myself (yeah no idea how that works either)
