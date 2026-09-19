@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <% @blogposts.each do |blogpost| %>
     <header>My Blog</header>
     <div class="content">
       <nav>
@@ -17,21 +18,58 @@
           <li class="categories">Programming</li>
           <li class="categories">Miscellaneous</li>
           <div class="controls">
-            <li><button>Post</button></li>
+            <li><button onclick="openFormCliente()">Post</button></li>
           </div>
         </ul>
       </nav>
       <main>
         <div class="post_preview">
-          <h6>Post #</h6>
-          <h5>Life Updates</h5>
-          <h2>My First Post</h2>
-          <p> Hello, and welcome to my blog! :D <br>Here, I'll be doing many things! Talk about my life (not too much of course, haha), rant about media (or glaze it), infodumping about my interests, maybe give a tutorial or two, don't count on it, and share my artwork and projects! I'm making this so I don't hate web development as much, gotta get used to it for my job, but if you happen to stumble onto this, enjoy the view! Hopefully, I'll be spending lots of time tweaking this, so expect it to be ever-changing! Thanks for dropping in, and see you on the next one! </p>
-          <h5>Updated on </h5>
+          <h6>Post #<%= blogpost.ID %></h6>
+          <h5><%= blogpost.post_category %></h5>
+          <h2><%= blogpost.post_title %></h2>
+          <p><%= simple_format(blogpost.post_body) %></p>
+          <h5>Created on <%= blogpost.created_at %></h5>
         </div>
       </main>
     </div>
+    <div class="form-popup-cliente" id="Cliente">
+      <form
+        action="clientes.php"
+        class="form-container"
+        id="formClientes"
+        method="POST"
+      >
+        <button type="button" class="btn-cancel" onclick="closeFormCliente()">
+          X
+        </button>
+        <h1><center>Añadir cliente</center></h1>
+
+        <label><b>Mozo:</b></label>
+        <select name="mozo">
+          <option>PEREZ JUAREZ, MARIA JOSE</option>
+          <option>RAMONES FLORES, MIRIAN</option>
+          <option>MELGAREJO MARTINEZ, ARTURO</option>
+          <option>DE LAS FLORES SALENT, GABRIEL</option></select
+        ><br /><br />
+
+        <label><b>Cantidad de personas:</b></label>
+        <input type="number" name="cantidad" required /><br /><br />
+
+        <label><b>Observaciones:</b></label>
+        <textarea name="obs-clientes" rows="5" cols="35"></textarea>
+        <br /><br /><br />
+
+        <button
+          type="button"
+          name="anadir-cliente"
+          class="btn-aceptar"
+        >
+          Aceptar
+        </button>
+      </form>
+    </div>
     <footer>Made with &lt;3 by Sienna</footer>
     <script src="script.js"></script>
+    <% end %>
   </body>
 </html>
