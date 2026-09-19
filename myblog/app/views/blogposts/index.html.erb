@@ -6,7 +6,7 @@
   </head>
   <body>
     <% @blogposts.each do |blogpost| %>
-    <header>My Blog!</header>
+    <header>My Blog</header>
     <div class="content">
       <nav>
         <ul>
@@ -18,7 +18,7 @@
           <li class="categories">Programming</li>
           <li class="categories">Miscellaneous</li>
           <div class="controls">
-            <li><button onclick="openFormCliente()">Post</button></li>
+            <li><button onclick="openForm()">Post</button></li>
           </div>
         </ul>
       </nav>
@@ -32,41 +32,27 @@
         </div>
       </main>
     </div>
-    <div class="form-popup-cliente" id="Cliente">
+    <div class="form-popup" id="postForm">
       <form
-        action="clientes.php"
         class="form-container"
-        id="formClientes"
-        method="POST"
+        id="formCreateForm"
       >
-        <button type="button" class="btn-cancel" onclick="closeFormCliente()">
-          X
-        </button>
-        <h1><center>Añadir cliente</center></h1>
+        <div class="inputs">
+          <h2>Create Post</h2>
 
-        <label><b>Mozo:</b></label>
-        <select name="mozo">
-          <option>PEREZ JUAREZ, MARIA JOSE</option>
-          <option>RAMONES FLORES, MIRIAN</option>
-          <option>MELGAREJO MARTINEZ, ARTURO</option>
-          <option>DE LAS FLORES SALENT, GABRIEL</option></select
-        ><br /><br />
+          <label><b>Post Title:</b></label><br>
+          <input type="text" name="cantidad"/><br /><br />
 
-        <label><b>Cantidad de personas:</b></label>
-        <input type="number" name="cantidad" required /><br /><br />
-
-        <label><b>Observaciones:</b></label>
-        <textarea name="obs-clientes" rows="5" cols="35"></textarea>
-        <br /><br /><br />
-
-        <button
-          type="button"
-          name="anadir-cliente"
-          class="btn-aceptar"
-        >
-          Aceptar
-        </button>
+          <label><b>Post Body:</b></label><br>
+          <textarea name="obs-clientes" rows="5" cols="35" required></textarea>
+          <br /><br />
+          
+        </div>
+        <button type="button" class="btn-cancel" onclick="closeForm()">X</button>
       </form>
+      <button type="button" name="anadir-cliente" class="btn-aceptar" style="margin: 0px 0px 20px 20px;">
+          Post
+        </button>
     </div>
     <footer>Made with &lt;3 by Sienna</footer>
     <script src="script.js"></script>

@@ -1,13 +1,13 @@
 console.log("Hi");
 
-function openFormCliente() {
+function openForm() {
   console.log("Yes bitch I saw it");
-  document.getElementById("Cliente").style.display = "block";
+  document.getElementById("postForm").style.display = "block";
 }
-window.openFormCliente = openFormCliente;
+window.openForm = openForm;
 
-function closeFormCliente() {
-  document.getElementById("Cliente").style.display = "none";
+function closeForm() {
+  document.getElementById("postForm").style.display = "none";
 }
 
-window.closeFormCliente = closeFormCliente;
+window.closeForm = closeForm;
